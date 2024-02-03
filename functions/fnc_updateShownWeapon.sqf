@@ -30,7 +30,7 @@ private _objects = [];
 	deleteVehicle _x;
 } forEach _currentWeaponObjects;
 
-if (_weaponInfo isEqualTo []) exitWith {};
+if (isNil "_weaponInfo" || {_weaponInfo isEqualTo []}) exitWith {};
 
 private _class = QGVAR(GWH);
 if (isClass (configFile >> "CfgPatches" >> "KJW_TwoSecondaryWeapons")) then {
