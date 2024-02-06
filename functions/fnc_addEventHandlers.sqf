@@ -21,7 +21,10 @@
 	"weapon",
 	{
 		private _pistolEquipped = currentWeapon player isEqualTo handgunWeapon player;
-		private _hasProxies = count ((selectionNames vestContainer player) select {"weapon" in _x}) > 0;
+		private _modelPath = getText (configFile >> "CfgWeapons" >> vest player >> "model");
+		private _obj = createSimpleObject [_modelPath, [0,0,0], true];
+		private _hasProxies = ((selectionNames _obj) select {"holster" in _x}) isNotEqualTo [];
+		deleteVehicle _obj;
 		if (_pistolEquipped || _hasProxies) exitWith {
 			private _currentWeaponObjects = player getVariable [QGVAR(currentWeaponObjects),[]];
 			{
@@ -36,7 +39,10 @@
 	"loadout",
 	{
 		private _pistolEquipped = currentWeapon player isEqualTo handgunWeapon player;
-		private _hasProxies = count ((selectionNames vestContainer player) select {"weapon" in _x}) > 0;
+		private _modelPath = getText (configFile >> "CfgWeapons" >> vest player >> "model");
+		private _obj = createSimpleObject [_modelPath, [0,0,0], true];
+		private _hasProxies = ((selectionNames _obj) select {"holster" in _x}) isNotEqualTo [];
+		deleteVehicle _obj;
 		if (_pistolEquipped || _hasProxies) exitWith {
 			private _currentWeaponObjects = player getVariable [QGVAR(currentWeaponObjects),[]];
 			{
