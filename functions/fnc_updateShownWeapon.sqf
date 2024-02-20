@@ -21,7 +21,7 @@ private _currentWeaponObjects = player getVariable [QGVAR(currentWeaponObjects),
 
 private _weaponInfo = (weaponsItems player select {_x#0 isEqualTo handgunWeapon player})#0;
 
-if (GVAR(selectedPosition) isEqualTo []) exitWith {};
+if (GVAR(selectedPosition) isEqualTo [[]]) exitWith {};
 
 private _positions = [GVAR(selectedPosition)];
 private _objects = [];
